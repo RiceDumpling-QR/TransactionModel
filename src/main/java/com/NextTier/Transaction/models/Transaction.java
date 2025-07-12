@@ -6,16 +6,6 @@ public class Transaction {
     private double amount;
     private long timestamp;
 
-    public Transaction() {
-    }
-
-    public Transaction(String transactionId, String userId, double amount, long timestamp) {
-        this.transactionId = transactionId;
-        this.userId = userId;
-        this.amount = amount;
-        this.timestamp = timestamp;
-    }
-
     // Getters and Setters
     public String getTransactionId() {
         return transactionId;
