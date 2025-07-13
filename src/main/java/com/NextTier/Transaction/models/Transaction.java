@@ -1,6 +1,14 @@
 package com.NextTier.Transaction.models; // adjust to match your structure
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "transactions")
 public class Transaction {
+
+    @Id
     private String transactionId;
     private String userId;
     private double amount;

@@ -1,7 +1,9 @@
 package com.NextTier.Transaction.controllers;
 
 import com.NextTier.Transaction.models.Transaction;
+import com.NextTier.Transaction.repositories.TransactionRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,9 +22,16 @@ import java.util.Map;
 @RestController
 public class TransactionController {
 
+    @Autowired
+    private TransactionRepository transactionRepository;
+
     @PostMapping
     public ResponseEntity<String> receiveTransaction(@RequestBody Transaction txn) {
         try {
+
+            // store it in a local database in the docker machine
+
+            transactionRepository.save(txn);
 
             // Put item into DynamoDB
             Region region = Region.US_EAST_1;
